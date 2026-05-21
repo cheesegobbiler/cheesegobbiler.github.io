@@ -1,1 +1,151 @@
-<h1> Ill edit l8r </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pineapple security</title>
+    <style>
+        /* Base Page Setup */
+        body {
+            background-color: #000000; /* Pure black background as requested */
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container Layout Card */
+        .security-panel {
+            background-color: #111111;
+            border: 2px solid #222222;
+            border-radius: 12px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        /* --- SMOOTH ENTRANCE ANIMATION --- */
+        h1 {
+            color: #ffff00; /* Bright yellow text */
+            font-size: 32px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: bold;
+            opacity: 0; /* Starts completely hidden */
+            animation: smoothEntrance 1.5s ease-out forwards; /* 1.5 second smooth fade-in */
+        }
+
+        @keyframes smoothEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px); /* Subtle downward slide shift */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form Elements Setup */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #888888;
+            margin-bottom: 8px;
+        }
+
+        /* Dropdown Selection Box Custom Styling */
+        select {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border: 2px solid #333333;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        select:focus {
+            border-color: #00bcff; /* Cool cyan border highlight on click */
+        }
+
+        /* Interactive Action Trigger Button */
+        .action-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #c81e1e; /* Matching your Pygame red button color */
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .action-btn:hover {
+            background-color: #a01414; /* Darker red on mouse hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="security-panel">
+        <h1>pineapple security</h1>
+        
+        <div class="input-group">
+            <label for="provider-select">Email Provider</label>
+            <!-- Dropdown Element Structure -->
+            <select id="provider-select">
+                <option value="" disabled selected>Choose your email provider</option>
+                <option value="google">Google</option>
+                <option value="yahoo">Yahoo</option>
+                <option value="outlook">Outlook or Hotmail</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <button class="action-btn" onclick="handleResolve()">Resolve Actions</button>
+    </div>
+
+    <!-- LINK ROUTING ENGINE ROUTINE -->
+    <script>
+        function handleResolve() {
+            const dropdown = document.getElementById("provider-select");
+            const choice = dropdown.value;
+
+            // Enforce selection confirmation safety check
+            if (!choice) {
+                alert("Please select an option from the dropdown menu before proceeding.");
+                return;
+            }
+
+            // Route execution flows dynamically based on active selection choice
+            if (choice === "other") {
+                console.log("search up how to reset your password");
+                alert("search up how to reset your password");
+            } else {
+                // Open google.com inside a brand new web browser tab context
+                window.open("https://google.com", "_blank");
+            }
+        }
+    </script>
+
+</body>
+</html>
