@@ -7,7 +7,7 @@
     <style>
         /* Base Page Setup */
         body {
-            background-color: #000000; /* Pure black background as requested */
+            background-color: #000000; /* Pure black background */
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -30,25 +30,37 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.7);
         }
 
-        /* --- SMOOTH ENTRANCE ANIMATION --- */
+        /* --- SMOOTH ENTRANCE ANIMATION CONTAINER --- */
+        .brand-header {
+            opacity: 0; /* Starts completely hidden */
+            animation: smoothEntrance 1.5s ease-out forwards; /* 1.5 second smooth slide and fade-in */
+            margin-bottom: 30px;
+        }
+
+        /* Your Pineapple Graphic Layout */
+        .brand-logo {
+            width: 140px; /* Adjusted size to look clean on desktop/mobile */
+            height: auto;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
         h1 {
             color: #ffff00; /* Bright yellow text */
             font-size: 32px;
-            margin-top: 0;
-            margin-bottom: 30px;
+            margin: 0;
             font-weight: bold;
-            opacity: 0; /* Starts completely hidden */
-            animation: smoothEntrance 1.5s ease-out forwards; /* 1.5 second smooth fade-in */
         }
 
+        /* Keyframes for the unified dropdown animation */
         @keyframes smoothEntrance {
             0% {
                 opacity: 0;
-                transform: translateY(-10px); /* Subtle downward slide shift */
+                transform: translateY(-25px); /* Starts higher up to create a drop-down effect */
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0); /* Settles into position */
             }
         }
 
@@ -81,14 +93,14 @@
         }
 
         select:focus {
-            border-color: #00bcff; /* Cool cyan border highlight on click */
+            border-color: #00bcff; /* Cyan highlight on focus */
         }
 
         /* Interactive Action Trigger Button */
         .action-btn {
             width: 100%;
             padding: 14px;
-            background-color: #c81e1e; /* Matching your Pygame red button color */
+            background-color: #c81e1e; /* Red button color */
             color: #ffffff;
             border: none;
             border-radius: 8px;
@@ -100,18 +112,22 @@
         }
 
         .action-btn:hover {
-            background-color: #a01414; /* Darker red on mouse hover */
+            background-color: #a01414; /* Darker red on hover */
         }
     </style>
 </head>
 <body>
 
     <div class="security-panel">
-        <h1>pineapple security</h1>
+        
+        <!-- Grouped the image and title so they drop down smoothly together -->
+        <div class="brand-header">
+            <img src="pineapple.png" alt="Pineapple Security Logo" class="brand-logo">
+            <h1>pineapple security</h1>
+        </div>
         
         <div class="input-group">
             <label for="provider-select">Email Provider</label>
-            <!-- Dropdown Element Structure -->
             <select id="provider-select">
                 <option value="" disabled selected>Choose your email provider</option>
                 <option value="google">Google</option>
@@ -130,18 +146,15 @@
             const dropdown = document.getElementById("provider-select");
             const choice = dropdown.value;
 
-            // Enforce selection confirmation safety check
             if (!choice) {
                 alert("Please select an option from the dropdown menu before proceeding.");
                 return;
             }
 
-            // Route execution flows dynamically based on active selection choice
             if (choice === "other") {
                 console.log("search up how to reset your password");
                 alert("search up how to reset your password");
             } else {
-                // Open google.com inside a brand new web browser tab context
                 window.open("https://google.com", "_blank");
             }
         }
