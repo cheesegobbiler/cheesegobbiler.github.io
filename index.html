@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pineapple security</title>
+
     <style>
-        /* Base Page Setup */
         body {
-            background-color: #000000; /* Pure black background */
+            background-color: #000000;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -17,7 +17,6 @@
             margin: 0;
         }
 
-        /* Container Layout Card */
         .security-panel {
             background-color: #111111;
             border: 2px solid #222222;
@@ -30,41 +29,38 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.7);
         }
 
-        /* --- SMOOTH ENTRANCE ANIMATION CONTAINER --- */
         .brand-header {
-            opacity: 0; /* Starts completely hidden */
-            animation: smoothEntrance 1.5s ease-out forwards; /* 1.5 second smooth slide and fade-in */
+            opacity: 0;
+            animation: smoothEntrance 1.5s ease-out forwards;
             margin-bottom: 30px;
         }
 
-        /* Your Pineapple Graphic Layout */
         .brand-logo {
-            width: 140px; /* Adjusted size to look clean on desktop/mobile */
+            width: 140px;
             height: auto;
             margin-bottom: 10px;
             display: inline-block;
         }
 
         h1 {
-            color: #ffff00; /* Bright yellow text */
+            color: #ffff00;
             font-size: 32px;
             margin: 0;
             font-weight: bold;
         }
 
-        /* Keyframes for the unified dropdown animation */
         @keyframes smoothEntrance {
             0% {
                 opacity: 0;
-                transform: translateY(-25px); /* Starts higher up to create a drop-down effect */
+                transform: translateY(-25px);
             }
+
             100% {
                 opacity: 1;
-                transform: translateY(0); /* Settles into position */
+                transform: translateY(0);
             }
         }
 
-        /* Form Elements Setup */
         .input-group {
             margin-bottom: 20px;
             text-align: left;
@@ -77,7 +73,6 @@
             margin-bottom: 8px;
         }
 
-        /* Dropdown Selection Box Custom Styling */
         select {
             width: 100%;
             padding: 12px;
@@ -93,14 +88,13 @@
         }
 
         select:focus {
-            border-color: #00bcff; /* Cyan highlight on focus */
+            border-color: #00bcff;
         }
 
-        /* Interactive Action Trigger Button */
         .action-btn {
             width: 100%;
             padding: 14px;
-            background-color: #c81e1e; /* Red button color */
+            background-color: #c81e1e;
             color: #ffffff;
             border: none;
             border-radius: 8px;
@@ -112,24 +106,46 @@
         }
 
         .action-btn:hover {
-            background-color: #a01414; /* Darker red on hover */
+            background-color: #a01414;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #ffff00;
+            color: #000000;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-top: 12px;
+        }
+
+        .download-btn:hover {
+            background-color: #d6d600;
         }
     </style>
 </head>
+
 <body>
 
     <div class="security-panel">
-        
-        <!-- Grouped the image and title so they drop down smoothly together -->
+
         <div class="brand-header">
             <img src="pineapple.png" alt="Pineapple Security Logo" class="brand-logo">
             <h1>pineapple security</h1>
         </div>
-        
+
         <div class="input-group">
             <label for="provider-select">Email Provider</label>
+
             <select id="provider-select">
-                <option value="" disabled selected>Choose your email provider</option>
+                <option value="" disabled selected>
+                    Choose your email provider
+                </option>
+
                 <option value="google">Google</option>
                 <option value="yahoo">Yahoo</option>
                 <option value="outlook">Outlook or Hotmail</option>
@@ -137,32 +153,68 @@
             </select>
         </div>
 
-        <button class="action-btn" onclick="handleResolve()">Resolve Actions</button>
+        <button class="action-btn" onclick="handleResolve()">
+            Resolve Actions
+        </button>
+
+        <button class="download-btn" onclick="handleDownload()">
+            Download App
+        </button>
+
     </div>
 
-    <!-- LINK ROUTING ENGINE ROUTINE -->
     <script>
+
         function handleResolve() {
+
             const dropdown = document.getElementById("provider-select");
             const choice = dropdown.value;
 
             if (!choice) {
-                alert("Please select an option from the dropdown menu before proceeding.");
+                alert("Please select an option before proceeding.");
                 return;
             }
 
             if (choice === "other") {
-                console.log("search up how to reset your password");
-                alert("search up how to reset your password");
-            } else if (choice === "Google" {
-                window.open("https://myaccount.google.com/intro/signinoptions/password", "_blank");
+
+                alert("Search up how to reset your password.");
+
             }
-            else if (choice === "Yahoo" {
-                window.open("https://help.yahoo.com/kb/account/reset-yahoo-password-sln27051.html", "_blank");
+            else if (choice === "google") {
+
+                window.open(
+                    "https://myaccount.google.com/intro/signinoptions/password",
+                    "_blank"
+                );
+
             }
-            else if (choice === "Outlook or Hotmail") {
-                window.open("https://support.microsoft.com/en-us/account-billing/reset-a-forgotten-microsoft-account-password-eff4f067-5042-c1a3-fe72-b04d60556c37", "_blank");
+            else if (choice === "yahoo") {
+
+                window.open(
+                    "https://help.yahoo.com/kb/account/reset-yahoo-password-sln27051.html",
+                    "_blank"
+                );
+
             }
+            else if (choice === "outlook") {
+
+                window.open(
+                    "https://support.microsoft.com/en-us/account-billing/reset-a-forgotten-microsoft-account-password-eff4f067-5042-c1a3-fe72-b04d60556c37",
+                    "_blank"
+                );
+
+            }
+        }
+
+        function handleDownload() {
+
+            window.open(
+                "https://google.com",
+                "_blank"
+            );
+
+        }
+
     </script>
 
 </body>
