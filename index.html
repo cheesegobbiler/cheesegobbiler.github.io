@@ -1,55 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pineapple security</title>
 
     <style>
+
         body {
             background-color: #000000;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             height: 100vh;
             margin: 0;
         }
 
         .security-panel {
             background-color: #111111;
+
             border: 2px solid #222222;
             border-radius: 12px;
+
             padding: 40px;
+
             width: 100%;
             max-width: 400px;
+
             box-sizing: border-box;
             text-align: center;
+
             box-shadow: 0 10px 30px rgba(0,0,0,0.7);
         }
 
         .brand-header {
             opacity: 0;
+
             animation: smoothEntrance 1.5s ease-out forwards;
+
             margin-bottom: 30px;
         }
 
         .brand-logo {
             width: 140px;
             height: auto;
+
             margin-bottom: 10px;
+
             display: inline-block;
         }
 
         h1 {
             color: #ffff00;
+
             font-size: 32px;
             margin: 0;
+
             font-weight: bold;
         }
 
         @keyframes smoothEntrance {
+
             0% {
                 opacity: 0;
                 transform: translateY(-25px);
@@ -68,22 +84,33 @@
 
         label {
             display: block;
+
             font-size: 14px;
             color: #888888;
+
             margin-bottom: 8px;
         }
 
         select {
+
             width: 100%;
+
             padding: 12px;
+
             background-color: #1a1a1a;
             color: #ffffff;
+
             border: 2px solid #333333;
             border-radius: 6px;
+
             font-size: 16px;
+
             outline: none;
+
             cursor: pointer;
+
             transition: border-color 0.3s ease;
+
             box-sizing: border-box;
         }
 
@@ -92,16 +119,24 @@
         }
 
         .action-btn {
+
             width: 100%;
+
             padding: 14px;
+
             background-color: #c81e1e;
             color: #ffffff;
+
             border: none;
             border-radius: 8px;
+
             font-size: 16px;
             font-weight: bold;
+
             cursor: pointer;
+
             transition: background-color 0.2s ease;
+
             margin-top: 10px;
         }
 
@@ -110,23 +145,33 @@
         }
 
         .download-btn {
+
             width: 100%;
+
             padding: 14px;
+
             background-color: #ffff00;
             color: #000000;
+
             border: none;
             border-radius: 8px;
+
             font-size: 16px;
             font-weight: bold;
+
             cursor: pointer;
+
             transition: background-color 0.2s ease;
+
             margin-top: 12px;
         }
 
         .download-btn:hover {
             background-color: #d6d600;
         }
+
     </style>
+
 </head>
 
 <body>
@@ -134,30 +179,60 @@
     <div class="security-panel">
 
         <div class="brand-header">
-            <img src="pineapple.png" alt="Pineapple Security Logo" class="brand-logo">
+
+            <img
+                src="pineapple.png"
+                alt="Pineapple Security Logo"
+                class="brand-logo"
+            >
+
             <h1>pineapple security</h1>
+
         </div>
 
         <div class="input-group">
-            <label for="provider-select">Email Provider</label>
+
+            <label for="provider-select">
+                Email Provider
+            </label>
 
             <select id="provider-select">
+
                 <option value="" disabled selected>
                     Choose your email provider
                 </option>
 
-                <option value="google">Google</option>
-                <option value="yahoo">Yahoo</option>
-                <option value="outlook">Outlook or Hotmail</option>
-                <option value="other">Other</option>
+                <option value="google">
+                    Google
+                </option>
+
+                <option value="yahoo">
+                    Yahoo
+                </option>
+
+                <option value="outlook">
+                    Outlook or Hotmail
+                </option>
+
+                <option value="other">
+                    Other
+                </option>
+
             </select>
+
         </div>
 
-        <button class="action-btn" onclick="handleResolve()">
+        <button
+            class="action-btn"
+            onclick="handleResolve()"
+        >
             Resolve Actions
         </button>
 
-        <button class="download-btn" onclick="handleDownload()">
+        <button
+            class="download-btn"
+            onclick="handleDownload()"
+        >
             Download App
         </button>
 
@@ -167,55 +242,62 @@
 
         function handleResolve() {
 
-            const dropdown = document.getElementById("provider-select");
+            const dropdown =
+                document.getElementById("provider-select");
+
             const choice = dropdown.value;
 
             if (!choice) {
-                alert("Please select an option before proceeding.");
+
+                alert(
+                    "Please select an option before proceeding."
+                );
+
                 return;
             }
 
             if (choice === "other") {
 
-                alert("Search up how to reset your password.");
-
+                alert(
+                    "Search up how to reset your password."
+                );
             }
+
             else if (choice === "google") {
 
                 window.open(
                     "https://myaccount.google.com/intro/signinoptions/password",
                     "_blank"
                 );
-
             }
+
             else if (choice === "yahoo") {
 
                 window.open(
                     "https://help.yahoo.com/kb/account/reset-yahoo-password-sln27051.html",
                     "_blank"
                 );
-
             }
+
             else if (choice === "outlook") {
 
                 window.open(
                     "https://support.microsoft.com/en-us/account-billing/reset-a-forgotten-microsoft-account-password-eff4f067-5042-c1a3-fe72-b04d60556c37",
                     "_blank"
                 );
-
             }
         }
 
         function handleDownload() {
 
             window.open(
-                "https://google.com",
+                "https://gofile.io/d/jW4BCi",
                 "_blank"
             );
-
         }
 
     </script>
 
 </body>
+
 </html>
